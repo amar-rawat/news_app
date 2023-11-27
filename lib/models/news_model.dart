@@ -1,18 +1,18 @@
-class NewsItem {
+class NewsModel {
   final String imageUrl;
   final String title;
   final String body;
 
-  NewsItem({required this.imageUrl, required this.title, required this.body});
+  NewsModel({required this.imageUrl, required this.title, required this.body});
 
-  factory NewsItem.fromJson(Map<String, dynamic> json) {
-    return NewsItem(
-        imageUrl: json['imageUrl'] as String,
+  factory NewsModel.fromJson(Map<String, dynamic> json) {
+    return NewsModel(
+        imageUrl: json['url'] as String,
         title: json['title'] as String,
-        body: json['body'] as String);
+        body: json['title'] as String);
   }
 
-  static List<NewsItem> newsItemFromSnapshot(List snapshot) {
-    return snapshot.map((e) => NewsItem.fromJson(e)).toList();
+  static List<NewsModel> getNewsFromSnapshot(List newsKiList) {
+    return newsKiList.map((e) => NewsModel.fromJson(e)).toList();
   }
 }

@@ -5,8 +5,15 @@ import 'package:news_app/themes/app_colors.dart';
 import 'package:news_app/themes/text_theme.dart';
 
 class NewsCard extends StatelessWidget {
-  NewsCard({super.key, required this.snapshot});
-  AsyncSnapshot snapshot;
+  NewsCard(
+      {super.key,
+      required this.imageUrl,
+      required this.title,
+      required this.body});
+
+  final imageUrl;
+  final title;
+  final body;
 
   @override
   Widget build(BuildContext context) {
@@ -24,18 +31,18 @@ class NewsCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.network('')),
+                    child: Image.network(imageUrl)),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TitleText(
-                  title: snapshot.data['title'],
+                  title: title,
                 ),
               ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: BodyText(body: snapshot.data['title']),
+                  child: BodyText(body: body),
                 ),
               ),
               ReadMoreText(),

@@ -5,8 +5,6 @@ import 'package:news_app/themes/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
-
-  NewsApi.getItem();
 }
 
 class MyApp extends StatelessWidget {
